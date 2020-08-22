@@ -12,14 +12,14 @@ TOPLEVEL_LANG ?=vhdl
 SIM ?= ghdl
 
 ifeq ($(TOPLEVEL_LANG),verilog)
-  VERILOG_SOURCES =$(CWD)/../hdl/dff.v
+  VERILOG_SOURCES =$(CWD)/../hdl/top.v
 else ifeq ($(TOPLEVEL_LANG),vhdl)
-  VHDL_SOURCES =$(CWD)/../hdl/dff.vhdl
+  VHDL_SOURCES =$(CWD)/../hdl/top.vhdl
 else
   $(error "A valid value (verilog or vhdl) was not provided for TOPLEVEL_LANG=$(TOPLEVEL_LANG)")
 endif
 
-TOPLEVEL = dff
+TOPLEVEL = top
 MODULE := $(TOPLEVEL)_cocotb
 COCOTB_HDL_TIMEUNIT=1us
 COCOTB_HDL_TIMEPRECISION=1us

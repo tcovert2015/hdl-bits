@@ -27,7 +27,7 @@
 
 `timescale 1ns/1ps
 
-module dff (c,d,q);
+module top (c,d,q);
    input wire c, d;
    output reg q = 1'b0;
 
@@ -38,4 +38,4 @@ module dff (c,d,q);
 	q <= d;
      end
 
-endmodule // dff
+endmodule // top
