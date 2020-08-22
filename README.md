@@ -1,1 +1,1 @@
-This repo will hold excersises from hdlbits. I will convert the excersizes from verilog into VHDL and use cocotb to simualte.
+This repo will hold excises from hdlbits. I will convert the excises from verilog into VHDL and use cocotb to simulate.
