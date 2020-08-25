@@ -18,7 +18,7 @@ async def simple_wires(dut):
     dut._log.info("The output should be 1")
 
     # Set error if the output does not equal the input
-    if output != 0:
+    if output != input:
         raise dut._log.error("output does not equal input")
     else:
         dut._log.info("Else branch")
