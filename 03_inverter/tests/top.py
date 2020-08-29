@@ -58,7 +58,7 @@ async def inverter_using_model(dut):
 async def random_inverter(dut):
     """ Test simple inverter with random bits """
 
-    for i in range (100):
+    for i in range (10000):
         a = random.randint(0,1)
 
         dut.input_a <= a
