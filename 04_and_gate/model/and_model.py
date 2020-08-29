@@ -1,8 +1,8 @@
 # Model of a simple AND gate
 
 def and_model(a: int, b: int) -> int:
-    """ model of AND gate """
-    if(a == b):
+    """ Model of AND gate """
+    if(a == 1 and b == 1):
         return 1
-    elif(a != b):
+    else:
         return 0
