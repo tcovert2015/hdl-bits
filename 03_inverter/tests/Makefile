@@ -29,8 +29,8 @@ COCOTB_HDL_TIMEPRECISION=1us
 
 CUSTOM_SIM_DEPS=$(CWD)/Makefile
 
-ifeq ($(SIM),questa)
-    SIM_ARGS=-t 1ps
+ifeq ($(SIM),ghdl)
+    SIM_ARGS ?= --vcd=sim_build/waveform.vcd
 endif
 
 ifneq ($(filter $(SIM),ius xcelium),)
