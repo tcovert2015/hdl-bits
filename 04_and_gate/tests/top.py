@@ -11,18 +11,19 @@ async def random_and_gate(dut):
     """ Test simple AND gate with random bits """
 
     for i in range (10000):
+        # Create random values to send to model and dut
         a_rand = random.randint(0,1)
         b_rand = random.randint(0,1)
 
+        # Send random values to model
+        model_output = and_model(a_rand, b_rand)
+
+        # Send random values to dut
         dut.a <= a_rand
         dut.b <= b_rand
 
+        # Wait for dut to do its thing
         await Timer(1, units='ns')
 
-        dut._log.info(dut.a.value)
-        dut._log.info(a_rand)
-        dut._log.info(dut.b.value)
-        dut._log.info(b_rand)
-        dut._log.info(dut.z.value)
-
-        assert int(dut.z.value) == and_model(a_rand, b_rand), "AND gate result is incorrect: {a} AND {b} = {z}".format(a=dut.a.value, b=dut.b.value, z=dut.z.value)
+        # Compare results
+        assert int(dut.z.value) == model_output, "AND gate result is incorrect: Model output is {a}, dut output is {b}.".format(a=model_output, b=dut.b.value)
