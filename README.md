@@ -2,4 +2,4 @@ This repo will hold exercises from hdlbits. I will convert the exercises from ve
 
 https://hdlbits.01xz.net/wiki/Main_Page
 
-coctb: https://github.com/cocotb/cocotb
+cocotb: https://github.com/cocotb/cocotb
