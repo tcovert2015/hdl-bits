@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
--- Modeling the 7458 chip
+-- Simple Vector in VHDL from hdlbits.
 --
 -- Description:
--- Simple program to model the 7458 chip. It has 4 AND gates and two OR gates
+-- VHDL to route vectors in a design.
 -------------------------------------------------------------------------------
 
 library ieee;
@@ -11,23 +11,14 @@ use ieee.std_logic_1164.all;
 entity top is
   port (
 
-    -- P1 Inputs
-    p1a   : in  std_logic;
-    p1b   : in  std_logic;
-    p1c   : in  std_logic;
-    p1d   : in  std_logic;
-    p1e   : in  std_logic;
-    p1f   : in  std_logic;
-
-    -- P2 Inputs
-    p2a   : in  std_logic;
-    p2b   : in  std_logic;
-    p2c   : in  std_logic;
-    p2d   : in  std_logic;
+    -- Vector Input
+    vec : in std_logic_vector(2 downto 0);
 
     -- Outputs
-    p1y : out std_logic;
-    p2y : out std_logic
+    outv : out std_logic_vector(2 downto 0);
+    o0   : out std_logic;
+    o1   : out std_logic;
+    o2   : out std_logic
     );
 
 end entity top;
@@ -36,7 +27,9 @@ architecture rtl of top is
 
 begin
 
-  p1y <= ((p1a and p1b and p1c) or (p1f and p1e and p1d));
-  p2y <= ((p2a and p2b) or (p2c and p2d));
-  
+  outv <= vec;
+  o0   <= vec(0);
+  o1   <= vec(1);
+  o2   <= vec(2);
+
 end architecture rtl;
