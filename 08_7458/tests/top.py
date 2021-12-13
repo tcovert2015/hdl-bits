@@ -12,7 +12,7 @@ async def random_wires(dut):
     for i in range (10000):
 
         # Set debug breakpoint
-        #rpdb.set_trace()
+        # rpdb.set_trace()
         
         # Create random values to send to model and dut
         p1a_rand = random.randint(0,1)

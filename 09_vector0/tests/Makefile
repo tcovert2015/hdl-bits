@@ -26,12 +26,15 @@ TOPLEVEL = top
 MODULE := $(TOPLEVEL)
 COCOTB_HDL_TIMEUNIT=1us
 COCOTB_HDL_TIMEPRECISION=1us
-COVERAGE = 1
 
 CUSTOM_SIM_DEPS=$(CWD)/Makefile
 
 ifeq ($(SIM),ghdl)
-    SIM_ARGS += --vcd=sim_build/waveform.vcd
+    SIM_ARGS ?= --vcd=sim_build/waveform.vcd
+endif
+
+ifneq ($(filter $(SIM),ius xcelium),)
+    SIM_ARGS += -v93
 endif
 
 include $(shell cocotb-config --makefiles)/Makefile.sim
